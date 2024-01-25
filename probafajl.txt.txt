@@ -1,0 +1,41 @@
+Hozz létre egy weboldalt, amely egy egyszerű szövegszerkesztő funkcióval rendelkezik.
+A felhasználók kiválaszthatnak egy szöveges fájlt a FilePicker segítségével, szerkeszthetik a tartalmát, majd menthetik a változásokat a Save gomb segítségével.
+
+
+Funkciók:
+
+Fájl kiválasztása:
+
+    Az oldalon legyen egy FilePicker (fájlkiválasztó) elem, amely lehetővé teszi a felhasználók számára egy szöveges fájl kiválasztását.
+
+
+Szövegszerkesztő:
+
+    A kiválasztott fájl tartalmát megjeleníteni egy szövegszerkesztő területen az oldalon.
+    A felhasználók módosíthatják a szöveget, hozzáadhatnak új szövegrészeket, vagy törölhetik a meglévőket.
+
+
+Save gomb:
+
+    Egy "Save" gombot helyezzen el az oldalon.
+    Amikor a felhasználó megnyomja a "Save" gombot, a szerkesztett szöveg mentése történjen a kiválasztott fájlba.
+
+
+Felhasználói visszajelzés:
+
+    Jelenjen meg egy üzenet vagy értesítés a felhasználónak, hogy a mentés sikeres volt vagy ha valamilyen hiba történt.
+
+
+Felhasználói élmény:
+
+    Gondoskodj arról, hogy az oldal könnyen navigálható és érthető legyen.
+    Az interakciók legyenek intuitívak, és az esetleges hibákra legyenek felhasználóbarát hibaüzenetek.
+
+
+
+
+Technikai Specifikációk:
+
+    Használjon HTML, CSS és JavaScript nyelveket.
+    A FilePicker használatához használjon a böngészők által támogatott API-t.
+    Az adatok tárolásához és kezeléséhez használjon JavaScript funkciókat.
