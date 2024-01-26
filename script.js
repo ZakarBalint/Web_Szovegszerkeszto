@@ -23,19 +23,27 @@ const buttonSaveAs = document.getElementById("buttonSaveAs");
 
 buttonSave.onclick = function SaveFile()
 {
-    var newFile = new Blob([TextEditor.value], {type: 'text/plain'});
+    try
+    {
+        var newFile = new Blob([TextEditor.value], {type: 'text/plain'});
 
-    window.URL = window.URL || window.webkitURL;
-    var dlBtn = document.getElementById("download");
+        window.URL = window.URL || window.webkitURL;
+        var dlBtn = document.getElementById("download");
 
-    dlBtn.setAttribute("href", window.URL.createObjectURL(newFile));
-    dlBtn.setAttribute("download", filePicker.files[0].name);
+        dlBtn.setAttribute("href", window.URL.createObjectURL(newFile));
+        dlBtn.setAttribute("download", filePicker.files[0].name);
+    }
+    catch(error)
+    {
+        alert("Hiba a fájl letöltésekor!")
+    }    
 }
 
 
 buttonSaveAs.onclick = function SaveFileAs()
 {
-    let fileName = prompt("Kérem adja meg a fájl nevét:");
+    let fileName = null;
+    fileName = prompt("Kérem adja meg a fájl nevét:");
 
     if(fileName == null || fileName == "")
     {
@@ -43,11 +51,19 @@ buttonSaveAs.onclick = function SaveFileAs()
         return;
     }
 
-    var newFile = new Blob([TextEditor.value], {type: 'text/plain'});
+    try
+    {
+        var newFile = new Blob([TextEditor.value], {type: 'text/plain'});
 
-    window.URL = window.URL || window.webkitURL;
-    var dlBtn = document.getElementById("download");
+        window.URL = window.URL || window.webkitURL;
+        var dlBtn = document.getElementById("downloadAs");
 
-    dlBtn.setAttribute("href", window.URL.createObjectURL(newFile));
-    dlBtn.setAttribute("download", fileName);
+        dlBtn.setAttribute("href", window.URL.createObjectURL(newFile));
+        dlBtn.setAttribute("download", fileName += ".txt");
+
+    }
+    catch(error)
+    {
+        alert("Hiba a fájl letöltésekor!")
+    }
 }
