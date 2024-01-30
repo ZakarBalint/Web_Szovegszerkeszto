@@ -29,9 +29,13 @@ buttonSave.onclick = function SaveFile()
 
         window.URL = window.URL || window.webkitURL;
         var dlBtn = document.getElementById("download");
+        let fileName = filePicker.files[0].name;
+        let newFileName = filename.substring(fileName.lastIndexOf('.'), fileName.length);
+        console.log(fileName.lastIndexOf('.'), fileName.length);
+        console.log(filename.substring(fileName.lastIndexOf('.'), fileName.length));
 
         dlBtn.setAttribute("href", window.URL.createObjectURL(newFile));
-        dlBtn.setAttribute("download", filePicker.files[0].name);
+        dlBtn.setAttribute("download", newFileName);
     }
     catch(error)
     {
