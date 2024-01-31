@@ -1,8 +1,16 @@
 const filePicker = document.getElementById("filePicker");
 const TextEditor = document.getElementById("textEditor");
+const buttonClear = document.getElementById("buttonClear");
 
-TextEditor.value = "";
-filePicker.value = null;
+clearBoardAndFile();
+
+function clearBoardAndFile()
+{
+    TextEditor.value = "";
+    filePicker.value = null;
+}
+
+buttonClear.addEventListener("click", clearBoardAndFile);
 
 filePicker.onchange = function loadFileInTextEditor()
 {
@@ -23,19 +31,17 @@ const buttonSaveAs = document.getElementById("buttonSaveAs");
 
 buttonSave.onclick = function SaveFile()
 {
+    let fileName = filePicker.files[0].name;
+
     try
     {
         var newFile = new Blob([TextEditor.value], {type: 'text/plain'});
 
         window.URL = window.URL || window.webkitURL;
         var dlBtn = document.getElementById("download");
-        let fileName = filePicker.files[0].name;
-        let newFileName = filename.substring(fileName.lastIndexOf('.'), fileName.length);
-        console.log(fileName.lastIndexOf('.'), fileName.length);
-        console.log(filename.substring(fileName.lastIndexOf('.'), fileName.length));
 
         dlBtn.setAttribute("href", window.URL.createObjectURL(newFile));
-        dlBtn.setAttribute("download", newFileName);
+        dlBtn.setAttribute("download", fileName);
     }
     catch(error)
     {
