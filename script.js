@@ -29,9 +29,28 @@ filePicker.onchange = function loadFileInTextEditor()
 const buttonSave = document.getElementById("buttonSave");
 const buttonSaveAs = document.getElementById("buttonSaveAs");
 
-buttonSave.onclick = function SaveFile()
+buttonSave.addEventListener("click", SaveFile);
+buttonSaveAs.addEventListener("click", SaveFileAs);
+
+let fileName = null;
+
+function SaveFile()
 {
-    let fileName = filePicker.files[0].name;
+    try
+    {
+        fileName = filePicker.files[0].name;
+    }
+    catch
+    {
+        fileName = prompt("Kérem adja meg a fájl nevét:");
+
+        if(fileName == null || fileName == "")
+        {
+            alert("A fájlnak nincs neve!")
+            return;
+        }
+        fileName += ".txt";
+    }
 
     try
     {
@@ -50,9 +69,8 @@ buttonSave.onclick = function SaveFile()
 }
 
 
-buttonSaveAs.onclick = function SaveFileAs()
+function SaveFileAs()
 {
-    let fileName = null;
     fileName = prompt("Kérem adja meg a fájl nevét:");
 
     if(fileName == null || fileName == "")
